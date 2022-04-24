@@ -9,15 +9,36 @@
  */
 #include <iostream>
 #include <windows.h>
+
 #include "../include/class.h"
-#include "../include/struct.h"
+#include "../include/init.h"
 
 using namespace std;
 
 int main(int argc,char *argv[])
 {
+    int ret;
+
+    ret = init(); /* 初始化 */
+    if(ret != 0)
+    {
+        cout << "init error" << endl;
+        return -1;
+    }
+    vector<CPhysicalItem> physical_item_handbook;
+    physical_item_handbook = get_item_handbook(); /* 获取物品图鉴 */
+    /* 物品图鉴里有 */
+    cout << "-----------------------------------------" << endl;
+    for(long long unsigned int i = 0; i < physical_item_handbook.size(); i++)
+    {
+        cout << "name: " << physical_item_handbook[i].get_name() << endl;
+        cout << "mass: " << physical_item_handbook[i].get_mass() << endl;
+        cout << "aesthetic: " << physical_item_handbook[i].get_aesthetic() << endl;
+        cout << "-----------------------------------------" << endl;
+    }
+
     cout << "Hello World!" << endl; /* 打印信息 */
-    CPhysicalItem("apple", 10, 10, 10);    /* 创建物品 */
+
     system("pause");    /* 暂停 */
     return 0;
 }
