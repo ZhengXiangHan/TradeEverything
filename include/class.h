@@ -26,7 +26,12 @@ public:
     CPhysicalItem(name_t name, mass_t mass, aesthetic_t aesthetic);
     name_t get_name();           /* 获取物品名称 */
     mass_t get_mass();           /* 获取物品质量 */
-    aesthetic_t get_aesthetic(); /* 获取物品美观度 */
+    /* 
+     * 获取物品美观度
+     * 注意:cout uint8_t时要 转换成unsigned int再cout, 不然会被<< 重载成char的处理过程
+     * 可以使用 cout << a+0;或者cout << (unsigned int)a;
+     */
+    aesthetic_t get_aesthetic();
     ~CPhysicalItem();
 };
 

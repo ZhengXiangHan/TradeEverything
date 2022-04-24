@@ -9,6 +9,8 @@ SRC := $(wildcard *.cpp)
 # 编译的参数
 CXXFLAGS := -I ${INCLUDE_PATH}
 CXXFLAGS += -Wall -pipe -g
+CXXFLAGS += -march=native
+
 # 编译项目
 OBJS := $(SRC:%.cpp=%.o)
 

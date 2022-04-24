@@ -12,6 +12,7 @@
 
 #include "../include/class.h"
 #include "../include/init.h"
+#include "../include/debug.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int main(int argc,char *argv[])
     ret = init(); /* ≥ı ºªØ */
     if(ret != 0)
     {
-        cout << "init error" << endl;
+        DEBUG_ERROR("init error");
         return -1;
     }
     vector<CPhysicalItem> physical_item_handbook;
@@ -33,7 +34,7 @@ int main(int argc,char *argv[])
     {
         cout << "name: " << physical_item_handbook[i].get_name() << endl;
         cout << "mass: " << physical_item_handbook[i].get_mass() << endl;
-        cout << "aesthetic: " << physical_item_handbook[i].get_aesthetic() << endl;
+        cout << "aesthetic: " << physical_item_handbook[i].get_aesthetic()+0 << endl;
         cout << "-----------------------------------------" << endl;
     }
 
